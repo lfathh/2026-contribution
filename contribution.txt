@@ -18,3 +18,4 @@
 2026-01-04 13:40:34 - clean up code
 2026-01-04 18:30:45 - refactor code
 2026-01-04 15:34:33 - update logic
+2026-01-05 21:32:50 - fix typo in readme
