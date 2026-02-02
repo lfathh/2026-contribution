@@ -1,0 +1,29 @@
+name: Auto Farming Bot
+
+on:
+  schedule:
+    # Jalan setiap hari jam 01:00 UTC (08:00 WIB)
+    - cron: '0 1 * * *'
+  workflow_dispatch: # Biar bisa diklik manual kalau mau
+
+jobs:
+  daily-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Repository
+        uses: actions/checkout@v3
+
+      - name: Siapkan Git
+        run: |
+          git config --global user.name "lfathh"
+          git config --global user.email "lfathhbusines@gmail.com"
+
+      - name: Buat Commit Harian
+        run: |
+          # Tambah tanggal ke file log biar ada perubahan
+          echo "Auto commit: $(date)" >> contribution.txt
+          
+          git add contribution.txt
+          git commit -m "Daily farming: $(date)"
+          git push
+
